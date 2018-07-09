@@ -203,7 +203,7 @@ class PropelTypes
             self::BOOLEAN_EMU => PDO::PARAM_INT,
             self::OBJECT => PDO::PARAM_STR,
             self::PHP_ARRAY => PDO::PARAM_STR,
-            self::ENUM => PDO::PARAM_INT,
+            self::ENUM => PDO::PARAM_STR,
 
             // These are pre-epoch dates, which we need to map to String type
             // since they cannot be properly handled using strtotime() -- or even numeric
