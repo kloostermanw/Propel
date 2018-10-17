@@ -520,6 +520,19 @@ class Propel
     }
 
     /**
+     * Add a new data source to the configuration object.
+     *
+     * @param string $name
+     * @param array $arrDataSource
+     */
+    public static function addDataSource($name, $arrDataSource)
+    {
+        if (!isset(self::$configuration['datasources'][$name])) {
+            self::$configuration->setParameter("datasources.{$name}", $arrDataSource);
+        }
+    }
+
+    /**
      * Sets a Connection for specified datasource name.
      *
      * @param string    $name The datasource name for the connection being set.
