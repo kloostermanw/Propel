@@ -1922,7 +1922,7 @@ class ModelCriteria extends Criteria
             $pos++;
         }
         if ($stringToTransform) {
-            $parsedString .= preg_replace_callback("/[\w\\\]+\.\w+/", array($this, 'doReplaceNameInExpression'), $stringToTransform);
+            $parsedString .= preg_replace_callback("/[\w\\\+\.]+\w+/", array($this, 'doReplaceNameInExpression'), $stringToTransform);
         }
 
         $clause = $parsedString;
@@ -1978,7 +1978,10 @@ class ModelCriteria extends Criteria
             $prefix = $this->getModelAliasOrName();
         } else {
             // $prefix could be either class name or table name
-            list($prefix, $phpName) = explode('.', $phpName);
+            $arrName = explode('.', $phpName);
+            $phpName = array_pop($arrName);
+            $prefix = implode(".", $arrName);
+            //list($prefix, $phpName) = explode('.', $phpName);
         }
 
         if ($prefix == $this->getModelAliasOrName() || $prefix == $this->getTableMap()->getName()) {
