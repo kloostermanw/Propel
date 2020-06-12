@@ -104,7 +104,7 @@ abstract class XMLElement
             $values[] = trim($v);
         }
 
-        $value = implode($values, ' | ');
+        $value = implode(' | ', $values);
         if (empty($value) || ' | ' === $value) {
             return null;
         }
