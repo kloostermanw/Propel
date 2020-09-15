@@ -61,7 +61,7 @@ class PropelColumnTypes
         self::TINYINT     => PDO::PARAM_INT,
         self::SMALLINT    => PDO::PARAM_INT,
         self::INTEGER     => PDO::PARAM_INT,
-        self::BIGINT      => PDO::PARAM_STR,
+        self::BIGINT      => PDO::PARAM_INT,
         self::REAL        => PDO::PARAM_STR,
         self::FLOAT       => PDO::PARAM_STR,
         self::DOUBLE      => PDO::PARAM_STR,
