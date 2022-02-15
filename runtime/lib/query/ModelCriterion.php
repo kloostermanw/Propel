@@ -28,8 +28,12 @@ class ModelCriterion extends Criterion
      * @param string    $comparison, among ModelCriteria::MODEL_CLAUSE
      * @param string    $clause      A simple pseudo-SQL clause, e.g. 'foo.BAR LIKE ?'
      */
-    public function __construct(Criteria $outer, $column, $value = null, $comparison = ModelCriteria::MODEL_CLAUSE, $clause, $type = null)
+    public function __construct(Criteria $outer, $column, $value, $comparison, $clause, $type = null)
     {
+        if (is_null($comparison)) {
+            $comparison = ModelCriteria::MODEL_CLAUSE;
+        }
+
         $this->value = $value;
         if ($column instanceof ColumnMap) {
             $this->column = $column->getName();
