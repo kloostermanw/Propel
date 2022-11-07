@@ -425,4 +425,22 @@ abstract class BaseObject
         }
         throw new PropelException('Call to undefined method: ' . $name);
     }
+
+    /**
+     * Checks if the format is a iso format.
+     *
+     * @param $format
+     * @return bool
+     */
+    protected function isIsoFormat($format)
+    {
+        $arrMatches = ["MM", "DD", "YYYY", "ddd", "HH", "mm"];
+        foreach($arrMatches as $string) {
+            if (strpos($format, $string) !== FALSE) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
