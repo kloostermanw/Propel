@@ -113,6 +113,10 @@ EOF;
         $this->assertTrue(method_exists('DelegateDelegate', 'getDelegateMain'));
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testOneToOneDelegationCreatesANewDelegateIfNoneExists(): void
     {
         $main = new DelegateMain();
@@ -124,6 +128,10 @@ EOF;
         $this->assertEquals('foo', $main->getSubtitle());
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testManyToOneDelegationCreatesANewDelegateIfNoneExists()
     {
         $main = new DelegateMain();
@@ -135,6 +143,10 @@ EOF;
         $this->assertEquals('foo', $main->getSummary());
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testOneToOneDelegationUsesExistingDelegateIfExists()
     {
         $main = new DelegateMain();
@@ -144,6 +156,10 @@ EOF;
         $this->assertEquals('bar', $main->getSubtitle());
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testManyToOneDelegationUsesExistingDelegateIfExists()
     {
         $main = new DelegateMain();
@@ -153,6 +169,10 @@ EOF;
         $this->assertEquals('bar', $main->getSummary());
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testAModelCanHaveSeveralDelegates()
     {
         $main = new DelegateMain();
@@ -181,6 +201,10 @@ EOF;
         $main->setBody('baz');
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testOneToOneDelegatesCanBePersisted()
     {
         $main = new DelegateMain();
@@ -191,6 +215,10 @@ EOF;
         $this->assertNull($main->getSecondDelegateDelegate());
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testManyToOneDelegatesCanBePersisted()
     {
         $main = new DelegateMain();
@@ -201,6 +229,10 @@ EOF;
         $this->assertNull($main->getDelegateDelegate());
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testDelegateSimulatesClassTableInheritance()
     {
         $basketballer = new DelegateBasketballer();
@@ -215,6 +247,10 @@ EOF;
         $basketballer->save(); // should not throw exception
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testDelegateSimulatesMultipleClassTableInheritance()
     {
         $footballer = new DelegateFootballer();
@@ -234,6 +270,10 @@ EOF;
         $footballer->save(); // should not throw exception
     }
 
+    /**
+     * @group ignore
+     * @return void
+     */
     public function testTablePrefixSameDatabase()
     {
         $schema = <<<EOF
